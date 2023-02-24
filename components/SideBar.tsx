@@ -3,14 +3,15 @@
 import NewChat from "./NewChat"
 import {useCollection } from "react-firebase-hooks/firestore"
 import { useSession, signOut } from "next-auth/react"
-import { collection } from "firebase/firestore"
+import { collection, query, orderBy } from "firebase/firestore"
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
 
 const SideBar = () => {
   const {data: session } = useSession();
   const [chats, loading, error ] = useCollection(
-    session && collection(db, "users", session.user?.email!, "chats")
+    session && query(collection(db, "users", session.user?.email!, "chats"),
+    orderBy("createdAt", "desc"))
   );
   return (
     <div className='p-2 flex flex-col h-screen'>

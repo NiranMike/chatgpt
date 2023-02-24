@@ -2,6 +2,7 @@
 // It receives two props: children and session.
 // children is a ReactNode and will be the component to be wrapped by this provider.
 // session is an object of type Session or null and will be passed to the Provider component.
+'use client'
 
 import { Session } from "next-auth"
 import { SessionProvider as Provider } from "next-auth/react"
