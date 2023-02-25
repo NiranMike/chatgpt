@@ -35,11 +35,19 @@ const ChatInput = ({ chatId }: Props) => {
       }
     }
 
-    await addDoc(collection(db, 'users', session?.user?.email!, 'chats', chatId, 'messages'),
+    await addDoc(collection(
+      db,
+      'users',
+      session?.user?.email!,
+      'chats', 
+      chatId,
+      'messages'
+    ),
       message
     )
 
-    // Toas notification to say loading..
+    // Toast notification to say loading..
+    const notification = toast.loading('I am thinking..')
 
     await fetch('/api/askQuestion',{
       method: 'POST',
@@ -47,7 +55,10 @@ const ChatInput = ({ chatId }: Props) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        prompt: input, chatId, model, session
+        prompt: input,
+        chatId,
+        model,
+        session
       }),
     }).then(() => {
       // Toast notification to say successful!

@@ -5,6 +5,7 @@ import "../styles/globals.css"
 import { SessionProvider } from "../components/SessionProvider"
 import { authOptions } from "../pages/api/auth/[...nextauth]"
 import Login from "../components/Login"
+import ClientProvider from "../components/ClientProvider"
 
 // RootLayout component receives a `children` prop that represents the content to be rendered
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -31,6 +32,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   </div>
                   
                   {/* ClientProvider - Notification */}
+
+                  <ClientProvider />
                   {/* Main content area */}
                   <div className="bg-[#343541] flex-1">
                     {children}
