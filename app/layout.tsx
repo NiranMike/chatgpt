@@ -33,7 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   
                   {/* ClientProvider - Notification */}
 
-                  <ClientProvider />
+                  <ClientProvider /> -a
                   {/* Main content area */}
                   <div className="bg-[#343541] flex-1">
                     {children}
