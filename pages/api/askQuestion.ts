@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  name: string
+  answer: string
 }
 
 export default async function handler(
@@ -19,6 +19,8 @@ export default async function handler(
     if(!chatId){
         res.status(400).json({ answer: "Please provide a valid chat ID"})
         return;
-    }
+  }
+  // Chat Query
+    const response = await query(prompt, chatId, model)
     res.status(200).json({ name: 'John Doe' })
 }
