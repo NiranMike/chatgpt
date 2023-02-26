@@ -35,7 +35,7 @@ const ChatRow = ({ id }: Props) => {
       <Link href={`/chat/${id}`} className={`chartRow justify-center ${active && "bg-gray-700/50"}`}> {/* Creating a link to the chat with the specified id */}
           <ChatBubbleLeftIcon className="h-5 w-5" /> {/* Displaying the ChatBubbleLeftIcon */}
           <p className='flex-1 hidden md:inline-flex truncate'>
-            {messages?.docs[messages?.docs.length - 1]?.data().text || 'New Chat'}
+            {messages?.docs[0]?.data().text || 'New Chat'}
           </p>
           <TrashIcon 
           onClick={removeChat}

@@ -64,7 +64,7 @@ const ChatInput = ({ chatId }: Props) => {
     }).then(() => {
       // Toast notification to say successful!
       toast.success('Okay I am done thinking', {
-        id: notification
+        id: notification 
       })
     })
   };
