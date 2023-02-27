@@ -4,7 +4,7 @@ import Link from 'next/link'; // Importing Link component from Next.js
 import { usePathname, useRouter } from 'next/navigation'; // Importing hooks from Next.js for working with routes
 import { useSession } from 'next-auth/react';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import { collection, deleteDoc, doc } from 'firebase/firestore';
+import { collection, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
 
 type Props = {
@@ -18,7 +18,7 @@ const ChatRow = ({ id }: Props) => {
     const [active, setActive] = useState(false)
 
     const [messages] = useCollection(
-      collection(db, "users", session?.user?.email!, "chats", id, 'messages')
+      query(collection(db, "users", session?.user?.email!, "chats", id, 'messages'),orderBy("createdAt", "asc"))
     );
 
     useEffect(() => {
