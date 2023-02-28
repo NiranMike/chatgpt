@@ -24,8 +24,6 @@ export default async function handler(
     value: model.id,
     label: model.id,
   }))
- 
-
   
     res.status(200).json({ modelOptions, })
 }
