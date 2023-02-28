@@ -14,7 +14,7 @@ type Props = {
 
 const Chat = ({ chatId }: Props) => {
   const {data: session } = useSession();
-  const [messages] = useCollection(session && query(
+  const [messages, loading] = useCollection(session && query(
     collection(db, "users", session?.user?.email!, "chats", chatId, "messages"),
     orderBy("createdAt", "asc")
   ));
@@ -29,6 +29,13 @@ const Chat = ({ chatId }: Props) => {
             </p>
             <ArrowDownCircleIcon className='h-10 w-10 mx-auto mt-5 text-white animate-bounce'/>
           </>
+        )
+      }
+      {
+        loading && (
+          <div className='animate-pulse text-center text-white'>
+            <p>Loading Messages</p>
+          </div>
         )
       }
       {messages?.docs.map((message)=>(

@@ -11,7 +11,7 @@ import ModalSelection from "./ModalSelection";
 
 const SideBar = () => {
   const {data: session } = useSession();
-  const [chats] = useCollection(
+  const [chats, loading, error] = useCollection(
     session && query(collection(db, "users", session.user?.email!, "chats"),
     orderBy("createdAt", "desc"))
   );
@@ -26,10 +26,19 @@ const SideBar = () => {
                       <ModalSelection />
                   </div>
 
-                  {/* Map through the Chat Rows */}
+                  <div className='flex flex-col space-y-2 my-2'>
+
+                    {loading && (
+                      <div className='animate-pulse text-center text-white'>
+                        <p>Loading Chats</p>
+                      </div>
+                    )}
+                    {/* Map through the Chat Rows */}
                   {chats?.docs.map(chat => (
                     <ChatRow key={chat.id} id={chat.id} />
                   ))}
+                  </div>
+                  
                 </div>
         </div>
       {session &&
