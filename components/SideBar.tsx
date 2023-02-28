@@ -6,7 +6,7 @@ import { useSession, signOut } from "next-auth/react"
 import { collection, query, orderBy } from "firebase/firestore"
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
-import ModalSelection from "./ModalSelection";
+import ModalSelection from "./ModelSelection";
 
 
 const SideBar = () => {

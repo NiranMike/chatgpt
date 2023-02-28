@@ -6,7 +6,7 @@ import Select from "react-select";
 const fetchModels = () => {
     return fetch("/api/getEngines").then((res) => res.json());
 }
-const ModalSelection = () => {
+const ModelSelection = () => {
   const {data: models, isLoading} = useSWR('models', fetchModels)
   const {data: model, mutate: setModel } = useSWR("model",{
     fallbackData: "davinci"
@@ -30,4 +30,4 @@ const ModalSelection = () => {
   )
 }
 
-export default ModalSelection;
+export default ModelSelection;

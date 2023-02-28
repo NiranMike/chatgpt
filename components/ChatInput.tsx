@@ -7,6 +7,7 @@ import { type } from 'os';
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebase";
+import ModelSelection from "./ModelSelection"
 
 type Props = {
   chatId: string
@@ -93,6 +94,9 @@ const ChatInput = ({ chatId }: Props) => {
           {/* ModelSelection */}
         </div>
       </form>
+      <div className='md:hidden'>
+        <ModelSelection />
+      </div>
     </div>
   )
 }
