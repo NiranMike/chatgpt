@@ -6,6 +6,8 @@ import { useSession, signOut } from "next-auth/react"
 import { collection, query, orderBy } from "firebase/firestore"
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
+import ModalSelection from "./ModalSelection";
+
 
 const SideBar = () => {
   const {data: session } = useSession();
@@ -19,8 +21,9 @@ const SideBar = () => {
               <div>
                   {/* NewChat */}
                   <NewChat />
-                  <div>
+                  <div className='hidden sm:inline'>
                       {/* ModelSelection */}
+                      <ModalSelection />
                   </div>
 
                   {/* Map through the Chat Rows */}

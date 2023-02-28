@@ -8,4 +8,4 @@ const openai = new OpenAIApi(configuration
 
 )
 
-export default openai;
+export default openai
