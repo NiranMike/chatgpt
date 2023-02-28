@@ -47,7 +47,7 @@ export default async function handler(
   const context = messages.join('\n');
 
   // Chat Query
-  const response = await query(`${context}\nUser: ${prompt}`, chatId, model)
+  const response = await query(prompt, chatId, model)
 
   const message: Message = {
     text: response || "ChatGPT was unable to find an answer for that!",
