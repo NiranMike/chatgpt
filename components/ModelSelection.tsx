@@ -3,8 +3,9 @@ import React from 'react'
 import useSWR from "swr"
 import Select from "react-select";
 
-const fetchModels = () => {
-    return fetch("/api/getEngines").then((res) => res.json());
+const fetchModels = async () => {
+    const res = await fetch("/api/getEngines");
+  return await res.json();
 }
 const ModelSelection = () => {
   const {data: models, isLoading} = useSWR('models', fetchModels)
