@@ -19,7 +19,7 @@ const ChatInput = ({ chatId }: Props) => {
   const { data: session } = useSession();
 
   const { data: model } = useSWR("model", {
-    fallbackData: "davinci",
+    fallbackData: "text-davinci-003",
   });
 
   
