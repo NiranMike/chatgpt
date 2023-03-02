@@ -4,7 +4,7 @@ const query = async (prompt: string, chatId: string, model: string) => {
     const res = await openai.createCompletion({
         model,
         prompt,
-        temperature: 0.5,
+        temperature: 0.7,
         max_tokens: 1000,
         top_p: 0.7,
         frequency_penalty: 0.6,

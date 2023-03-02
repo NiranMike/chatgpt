@@ -24,13 +24,10 @@ const ChatInput = ({ chatId }: Props) => {
 
   
   const sendMessage = async (e: FormEvent<HTMLFormElement>) =>{
-    e.preventDefault()
-
+    e.preventDefault();
     if(!prompt) return;
-
     const input = prompt.trim();
     setPrompt("");
-
     const message: Message = {
       text: input,
       createdAt: serverTimestamp(),
