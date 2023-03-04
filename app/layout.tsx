@@ -1,4 +1,5 @@
 import SideBar from "../components/SideBar"
+import TopNav from "../components/TopNav"
 import { getServerSession } from "next-auth"
 
 import "../styles/globals.css"
@@ -23,8 +24,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {
             !session ? (
               <Login />
-            ): (
-                // If there is a session, render the main layout
+            ) : (
+              <>
+               
+                <div className='flex sm:hidden '>
+                  <TopNav />
+                </div>
+                
+                
                 <div className="flex">
                   {/* Sidebar */}
                   <div className="bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w-[20rem]">
@@ -39,6 +46,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     {children}
                   </div>
                 </div>
+              </>
+                
             )
           }
           

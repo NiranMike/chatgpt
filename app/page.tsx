@@ -4,7 +4,7 @@ import {SunIcon, BoltIcon, ExclamationTriangleIcon} from "@heroicons/react/24/ou
 const HomePage = () => {
   return (
     <div className='flex flex-col px-2 items-center justify-center md:h-screen text-white'>
-      <h1 className='text-5xl font-bold my-10'>ChatGPT</h1>
+      <h1 className='text-2xl pt-5 md:text-5xl font-bold my-10'>ChatGPT</h1>
       
       {/* Container for the three sections */}
       <div className='md:flex space-x-2 text-center'>

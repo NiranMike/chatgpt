@@ -34,7 +34,7 @@ const Chat = ({ chatId }: Props) => {
       {
         loading && (
           <div className='animate-pulse text-center text-white'>
-            <p>Loading Messages</p>
+            <p>Loading Messages </p>
           </div>
         )
       }
