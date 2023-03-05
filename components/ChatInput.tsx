@@ -88,7 +88,7 @@ const ChatInput = ({ chatId }: Props) => {
           className='bg-[#11A37F] hover:opacity-50 text-white font-bold px-4 py-2 rounded 
           disabled:bg-gray-300 disabled:cursor-not-allowed'
           type="submit">
-          <PaperAirplaneIcon className="h-4 w-4 -rotate-45" />
+          <PaperAirplaneIcon className={!prompt || !session ? `opacity-0 sm:opacity-500 h-4 w-4 -rotate-45` : `h-4 w-4 -rotate-45`} />
         </button>
 
         <div>

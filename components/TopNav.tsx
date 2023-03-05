@@ -1,14 +1,15 @@
 "use client"
-import React from 'react'
+import React,{useState} from 'react'
 import { PlusIcon, Bars3Icon } from "@heroicons/react/24/solid" 
 import { useSession } from "next-auth/react"; 
 import { useRouter } from "next/navigation"; 
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";  
-import NewChat from "./NewChat"
+import SideBar from './SideBar'
+
 
 const TopNav = () => {
-
+    const [openSideBar, setOpenSideBar] = useState(false)
     const router = useRouter() // Getting the router object using the useRouter hook
     const { data: session } = useSession(); // Getting the session object using the useSession hook
     
@@ -24,12 +25,20 @@ const TopNav = () => {
         };
     return (
 
-        <div className='flex py-2 fixed left-0 px-4 right-0 bg-[#434654] border-[#434654] justify-between items-center '>
-                <Bars3Icon className='text-white' width={32} />
+        <div className=' py-2 fixed w-full left-0 px-4 right-0 bg-[#434654] border-[#434654]  '>
+            <div className='flex justify-between items-center'>
+                <Bars3Icon onClick={()=> setOpenSideBar(!openSideBar)} className='text-white' width={32} />
              {/* Creating a clickable div to create a new chat */}
                 <PlusIcon width={32} onClick={createNewChat} className="h-4 w-4 text-white" /> {/* Displaying the PlusIcon */}
-                 {/* Displaying the text for creating a new chat */}
-            
+            </div>
+            <div>
+                {
+                    openSideBar && (
+                        <SideBar />
+                    )
+                }
+            </div>
+                
         </div>
     )
 }
