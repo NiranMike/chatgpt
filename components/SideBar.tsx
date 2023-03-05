@@ -23,7 +23,7 @@ const SideBar = () => {
                   <NewChat />
                   <div className='hidden sm:inline'>
                       {/* ModelSelection */}
-                      <ModalSelection />
+                      {/* <ModalSelection /> */}
                   </div>
 
                   <div className='flex flex-col space-y-2 my-2'>
